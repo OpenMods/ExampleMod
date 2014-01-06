@@ -15,13 +15,13 @@ import net.minecraftforge.common.Configuration;
 public class Config {
 
 	@BlockId(description = "The id of the block with 4 rotations")
-	public static int block4RotationsId = 5600;
+	public static int block4RotationsId = 1920;
 
 	@BlockId(description = "The id of the block with 6 rotations")
-	public static int block6RotationsId = 5601;
+	public static int block6RotationsId = 1921;
 
 	@BlockId(description = "The id of the block with 24 rotations")
-	public static int block24RotationsId = 5602;
+	public static int block24RotationsId = 1922;
 
 	public static void readConfig(Configuration configFile) {
 		ConfigProcessing.processAnnotations(configFile, Config.class);
