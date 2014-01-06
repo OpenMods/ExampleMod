@@ -11,6 +11,7 @@ import examplemod.ExampleMod.Blocks;
 import examplemod.common.block.BlockWith24Rotations;
 import examplemod.common.block.BlockWith4Rotations;
 import examplemod.common.block.BlockWith6Rotations;
+import examplemod.common.block.BlockWithCustomBlockRenderer;
 import examplemod.common.block.BlockWithGui;
 
 public class Config {
@@ -26,6 +27,9 @@ public class Config {
 
 	@BlockId(description = "The id of the block with a gui")
 	public static int blockWithGuiId = 1923;
+
+	@BlockId(description = "The id of the block with a custom renderer")
+	public static int blockWithCustomBlockRendererId = 1924;
 
 	public static void readConfig(Configuration configFile) {
 		ConfigProcessing.processAnnotations(configFile, Config.class);
@@ -50,6 +54,10 @@ public class Config {
 
 		if (ConfigProcessing.canRegisterBlock(blockWithGuiId)) {
 			Blocks.blockWithGui = new BlockWithGui();
+		}
+
+		if (ConfigProcessing.canRegisterBlock(blockWithCustomBlockRendererId)) {
+			Blocks.blockWithCustomBlockRenderer = new BlockWithCustomBlockRenderer();
 		}
 
 		ConfigProcessing.registerItems(ExampleMod.Items.class, ModInfo.ID);
