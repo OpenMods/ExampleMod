@@ -20,9 +20,8 @@ import cpw.mods.fml.common.network.NetworkMod;
 import examplemod.common.block.BlockWith24Rotations;
 import examplemod.common.block.BlockWith4Rotations;
 import examplemod.common.block.BlockWith6Rotations;
-import examplemod.common.tileentity.TileEntityWith24Rotations;
-import examplemod.common.tileentity.TileEntityWith4Rotations;
-import examplemod.common.tileentity.TileEntityWith6Rotations;
+import examplemod.common.block.BlockWithGui;
+import examplemod.common.tileentity.TileEntityWithGui;
 
 @Mod(modid = ModInfo.ID, name = ModInfo.NAME, version = ModInfo.VERSION, dependencies = ModInfo.DEPENDENCIES)
 @NetworkMod(serverSideRequired = true, clientSideRequired = true, channels = { ModInfo.ID })
@@ -38,14 +37,17 @@ public class ExampleMod {
 
 	public static class Blocks {
 
-		@RegisterBlock(name = "block4rotations", tileEntity = TileEntityWith4Rotations.class)
+		@RegisterBlock(name = "block4rotations")
 		public static BlockWith4Rotations block4Rotations;
 
-		@RegisterBlock(name = "block6rotations", tileEntity = TileEntityWith6Rotations.class)
+		@RegisterBlock(name = "block6rotations")
 		public static BlockWith6Rotations block6Rotations;
 
-		@RegisterBlock(name = "block24rotations", tileEntity = TileEntityWith24Rotations.class)
+		@RegisterBlock(name = "block24rotations")
 		public static BlockWith24Rotations block24Rotations;
+
+		@RegisterBlock(name = "blockgui", tileEntity = TileEntityWithGui.class)
+		public static BlockWithGui blockWithGui;
 
 	}
 
