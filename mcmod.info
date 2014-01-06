@@ -1,0 +1,17 @@
+[
+{
+  "modid" : "OpenBlocks",
+  "name" : "OpenBlocks",
+  "version" : "@VERSION@",
+  "url" : "http://www.yourwebsite.com",
+  "credits" : "",
+  "authors": [
+    "Whoever"
+  ],
+  "description": "",
+  "logoFile" : "",
+  "updateUrl" : "",
+  "parent" : "",
+  "screenshots": [
+  ]
+}]

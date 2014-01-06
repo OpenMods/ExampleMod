@@ -1,6 +1,8 @@
-*.class
-
-# Package Files #
-*.jar
-*.war
-*.ear
+build
+download
+/bin
+/out
+*.DS_Store
+.idea/
+Thumbs.db
+ForgeModLoader-client*
