@@ -16,6 +16,11 @@ public class ExampleModBlock extends OpenBlock {
 	}
 
 	@Override
+	public int getRenderType() {
+		return ExampleMod.renderId;
+	}
+
+	@Override
 	protected Object getModInstance() {
 		return ExampleMod.instance;
 	}

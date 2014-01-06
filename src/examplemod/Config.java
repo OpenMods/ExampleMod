@@ -2,15 +2,15 @@ package examplemod;
 
 import java.util.List;
 
+import net.minecraft.item.crafting.CraftingManager;
+import net.minecraft.item.crafting.IRecipe;
+import net.minecraftforge.common.Configuration;
+import openmods.config.BlockId;
+import openmods.config.ConfigProcessing;
 import examplemod.ExampleMod.Blocks;
 import examplemod.common.block.BlockWith24Rotations;
 import examplemod.common.block.BlockWith4Rotations;
 import examplemod.common.block.BlockWith6Rotations;
-import openmods.config.BlockId;
-import openmods.config.ConfigProcessing;
-import net.minecraft.item.crafting.CraftingManager;
-import net.minecraft.item.crafting.IRecipe;
-import net.minecraftforge.common.Configuration;
 
 public class Config {
 
@@ -43,5 +43,9 @@ public class Config {
 		if (ConfigProcessing.canRegisterBlock(block24RotationsId)) {
 			Blocks.block24Rotations = new BlockWith24Rotations();
 		}
+
+		ConfigProcessing.registerItems(ExampleMod.Items.class, ModInfo.ID);
+		ConfigProcessing.registerBlocks(ExampleMod.Blocks.class, ModInfo.ID);
+
 	}
 }

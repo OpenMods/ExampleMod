@@ -1,7 +1,7 @@
 package examplemod.client;
 
-import examplemod.ExampleMod;
 import openmods.renderer.BlockRenderingHandlerBase;
+import examplemod.ExampleMod;
 
 public class BlockRenderingHandler extends BlockRenderingHandlerBase {
 

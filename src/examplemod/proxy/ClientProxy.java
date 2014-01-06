@@ -1,9 +1,9 @@
 package examplemod.proxy;
 
+import openmods.api.IProxy;
 import cpw.mods.fml.client.registry.RenderingRegistry;
 import examplemod.ExampleMod;
 import examplemod.client.BlockRenderingHandler;
-import openmods.api.IProxy;
 
 public class ClientProxy implements IProxy {
 
