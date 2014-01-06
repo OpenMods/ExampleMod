@@ -8,14 +8,21 @@ import net.minecraft.item.ItemStack;
 import openmods.GenericInventory;
 import openmods.api.IHasGui;
 import openmods.sync.ISyncableObject;
+import openmods.sync.SyncableInt;
 import openmods.tileentity.SyncedTileEntity;
 import examplemod.client.gui.GuiExample;
 import examplemod.common.container.ContainerExample;
 
 public class TileEntityWithGui extends SyncedTileEntity implements IHasGui, IInventory {
 
+	private SyncableInt sliderValue;
+
 	public TileEntityWithGui() {
 		setInventory(new GenericInventory("example", true, 2));
+	}
+
+	public SyncableInt getSliderValueObject() {
+		return sliderValue;
 	}
 
 	/*******************************************************
@@ -42,10 +49,12 @@ public class TileEntityWithGui extends SyncedTileEntity implements IHasGui, IInv
 	 *******************************************************/
 
 	@Override
-	public void onSynced(Set<ISyncableObject> changes) {}
+	protected void createSyncedFields() {
+		sliderValue = new SyncableInt();
+	}
 
 	@Override
-	protected void createSyncedFields() {}
+	public void onSynced(Set<ISyncableObject> changes) {}
 
 	/*******************************************************
 	 * Implemented from IInventory
@@ -106,4 +115,5 @@ public class TileEntityWithGui extends SyncedTileEntity implements IHasGui, IInv
 	public boolean isItemValidForSlot(int i, ItemStack itemstack) {
 		return inventory.isItemValidForSlot(i, itemstack);
 	}
+
 }

@@ -8,8 +8,8 @@ public class ContainerExample extends ContainerInventory<TileEntityWithGui> {
 
 	public ContainerExample(IInventory playerInventory, TileEntityWithGui tile) {
 		super(playerInventory, tile);
-		addSlotToContainer(new RestrictedSlot(tile, 0, 14, 40));
-		addSlotToContainer(new RestrictedSlot(tile, 1, 56, 40));
+		addSlotToContainer(new RestrictedSlot(tile, 0, 62, 30));
+		addSlotToContainer(new RestrictedSlot(tile, 1, 100, 30));
 		addPlayerInventorySlots(93);
 	}
 

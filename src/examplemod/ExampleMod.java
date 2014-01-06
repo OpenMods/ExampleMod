@@ -4,6 +4,7 @@ import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.common.Configuration;
+import openmods.OpenMods;
 import openmods.api.IProxy;
 import openmods.config.RegisterBlock;
 
@@ -17,6 +18,7 @@ import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.network.NetworkMod;
+import cpw.mods.fml.common.network.NetworkRegistry;
 import examplemod.common.block.BlockWith24Rotations;
 import examplemod.common.block.BlockWith4Rotations;
 import examplemod.common.block.BlockWith6Rotations;
@@ -70,6 +72,8 @@ public class ExampleMod {
 			configFile.save();
 		}
 		Config.register();
+
+		NetworkRegistry.instance().registerGuiHandler(instance, OpenMods.proxy.wrapHandler(null));
 
 		proxy.preInit();
 	}
