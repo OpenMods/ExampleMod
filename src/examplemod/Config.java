@@ -15,6 +15,7 @@ import examplemod.common.block.BlockWithCustomBlockRenderer;
 import examplemod.common.block.BlockWithEventForwarding;
 import examplemod.common.block.BlockWithGui;
 import examplemod.common.block.BlockWithNetworking;
+import examplemod.common.block.BlockWithTESRenderer;
 
 /***
  * The Config class is responsible for defining anything that's specified in the
@@ -51,6 +52,9 @@ public class Config {
 
 	@BlockId(description = "The id of the block with event forwarding")
 	public static int blockWithEventForwardingId = 1926;
+
+	@BlockId(description = "The id of the block a TESR")
+	public static int blockWithTESRId = 1927;
 
 	public static void readConfig(Configuration configFile) {
 		ConfigProcessing.processAnnotations(configFile, Config.class);
@@ -94,6 +98,10 @@ public class Config {
 
 		if (ConfigProcessing.canRegisterBlock(blockWithEventForwardingId)) {
 			Blocks.blockWithEventForwarding = new BlockWithEventForwarding();
+		}
+
+		if (ConfigProcessing.canRegisterBlock(blockWithTESRId)) {
+			Blocks.blockWithTESR = new BlockWithTESRenderer();
 		}
 
 		/**

@@ -26,10 +26,12 @@ import examplemod.common.block.BlockWithCustomBlockRenderer;
 import examplemod.common.block.BlockWithEventForwarding;
 import examplemod.common.block.BlockWithGui;
 import examplemod.common.block.BlockWithNetworking;
+import examplemod.common.block.BlockWithTESRenderer;
 import examplemod.common.tileentity.TileEntityWith24Rotations;
 import examplemod.common.tileentity.TileEntityWithEventForwarding;
 import examplemod.common.tileentity.TileEntityWithGui;
 import examplemod.common.tileentity.TileEntityWithNetworking;
+import examplemod.common.tileentity.TileEntityWithTESR;
 
 @Mod(modid = ModInfo.ID, name = ModInfo.NAME, version = ModInfo.VERSION, dependencies = ModInfo.DEPENDENCIES)
 @NetworkMod(serverSideRequired = true, clientSideRequired = true, channels = { ModInfo.ID })
@@ -73,6 +75,9 @@ public class ExampleMod {
 
 		@RegisterBlock(name = "blockwitheventforwarding", tileEntity = TileEntityWithEventForwarding.class)
 		public static BlockWithEventForwarding blockWithEventForwarding;
+		
+		@RegisterBlock(name = "blockwithtesr", tileEntity = TileEntityWithTESR.class)
+		public static BlockWithTESRenderer blockWithTESR;
 
 	}
 

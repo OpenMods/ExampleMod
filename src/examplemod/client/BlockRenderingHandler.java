@@ -8,7 +8,7 @@ import examplemod.client.render.CustomBlockRendererExample;
 public class BlockRenderingHandler extends BlockRenderingHandlerBase {
 
 	public BlockRenderingHandler() {
-		this.blockRenderers.put(Blocks.blockWithCustomBlockRenderer, new CustomBlockRendererExample());
+		blockRenderers.put(Blocks.blockWithCustomBlockRenderer, new CustomBlockRendererExample());
 	}
 
 	@Override
