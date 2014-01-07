@@ -41,7 +41,7 @@ public class TileEntityWithNetworking extends SyncedTileEntity {
 
 	/**
 	 * On the server, every 50 ticks we're incrementing the counter1 by 1 and
-	 * every 100 ticks we're incrementing counter1 by 1. Then syncing the values
+	 * every 100 ticks we're incrementing counter2 by 1. Then syncing the values
 	 * down to the client by calling sync().
 	 * Note that you can call sync as much as you like, and only synced objects
 	 * that have been modified will be sent down to the client.
