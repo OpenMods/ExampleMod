@@ -23,9 +23,11 @@ import examplemod.common.block.BlockWith24Rotations;
 import examplemod.common.block.BlockWith4Rotations;
 import examplemod.common.block.BlockWith6Rotations;
 import examplemod.common.block.BlockWithCustomBlockRenderer;
+import examplemod.common.block.BlockWithEventForwarding;
 import examplemod.common.block.BlockWithGui;
 import examplemod.common.block.BlockWithNetworking;
 import examplemod.common.tileentity.TileEntityWith24Rotations;
+import examplemod.common.tileentity.TileEntityWithEventForwarding;
 import examplemod.common.tileentity.TileEntityWithGui;
 import examplemod.common.tileentity.TileEntityWithNetworking;
 
@@ -43,8 +45,10 @@ public class ExampleMod {
 
 	/**
 	 * This inner class holds static references to all of our blocks.
-	 * Each block has to be annotated with @RegisterBlock, and if the block uses a TileEntity
-	 * it should be defined here. You can also register any custom ItemBlocks here for your
+	 * Each block has to be annotated with @RegisterBlock, and if the block uses
+	 * a TileEntity
+	 * it should be defined here. You can also register any custom ItemBlocks
+	 * here for your
 	 * block
 	 */
 	public static class Blocks {
@@ -67,7 +71,11 @@ public class ExampleMod {
 		@RegisterBlock(name = "blockwithnetworking", tileEntity = TileEntityWithNetworking.class)
 		public static BlockWithNetworking blockWithNetworking;
 
+		@RegisterBlock(name = "blockwitheventforwarding", tileEntity = TileEntityWithEventForwarding.class)
+		public static BlockWithEventForwarding blockWithEventForwarding;
+
 	}
+
 	/**
 	 * This inner class holds static references to all of our items.
 	 * Each item has to be annotated with @RegisterItem
