@@ -45,7 +45,7 @@ public class TileEntityWithNetworking extends SyncedTileEntity {
 	 * down to the client by calling sync().
 	 * Note that you can call sync as much as you like, and only synced objects
 	 * that have been modified will be sent down to the client.
-	 * Syncing downs upstream as well as downstream.
+	 * Syncing works upstream as well as downstream.
 	 */
 	public void updateEntity() {
 		if (!worldObj.isRemote) {
