@@ -24,8 +24,10 @@ import examplemod.common.block.BlockWith4Rotations;
 import examplemod.common.block.BlockWith6Rotations;
 import examplemod.common.block.BlockWithCustomBlockRenderer;
 import examplemod.common.block.BlockWithGui;
+import examplemod.common.block.BlockWithNetworking;
 import examplemod.common.tileentity.TileEntityWith24Rotations;
 import examplemod.common.tileentity.TileEntityWithGui;
+import examplemod.common.tileentity.TileEntityWithNetworking;
 
 @Mod(modid = ModInfo.ID, name = ModInfo.NAME, version = ModInfo.VERSION, dependencies = ModInfo.DEPENDENCIES)
 @NetworkMod(serverSideRequired = true, clientSideRequired = true, channels = { ModInfo.ID })
@@ -39,6 +41,12 @@ public class ExampleMod {
 
 	public static int renderId;
 
+	/**
+	 * This inner class holds static references to all of our blocks.
+	 * Each block has to be annotated with @RegisterBlock, and if the block uses a TileEntity
+	 * it should be defined here. You can also register any custom ItemBlocks here for your
+	 * block
+	 */
 	public static class Blocks {
 
 		@RegisterBlock(name = "block4rotations")
@@ -56,12 +64,21 @@ public class ExampleMod {
 		@RegisterBlock(name = "blockcustomrenderer")
 		public static BlockWithCustomBlockRenderer blockWithCustomBlockRenderer;
 
-	}
+		@RegisterBlock(name = "blockwithnetworking", tileEntity = TileEntityWithNetworking.class)
+		public static BlockWithNetworking blockWithNetworking;
 
+	}
+	/**
+	 * This inner class holds static references to all of our items.
+	 * Each item has to be annotated with @RegisterItem
+	 */
 	public static class Items {
 
 	}
 
+	/**
+	 * Initialise a creative tab for our mod
+	 */
 	public static CreativeTabs tabExampleMod = new CreativeTabs("tabExampleMod") {
 		@Override
 		public ItemStack getIconItemStack() {

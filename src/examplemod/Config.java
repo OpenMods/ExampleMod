@@ -13,9 +13,20 @@ import examplemod.common.block.BlockWith4Rotations;
 import examplemod.common.block.BlockWith6Rotations;
 import examplemod.common.block.BlockWithCustomBlockRenderer;
 import examplemod.common.block.BlockWithGui;
+import examplemod.common.block.BlockWithNetworking;
 
+/***
+ * The Config class is responsible for defining anything that's specified in the config files,
+ * as well as initializing new instances of the blocks and items if the config allows.
+ * 
+ * @author mfranklin
+ *
+ */
 public class Config {
 
+	/**
+	 * The default ID for the blocks, along with the description of the config values
+	 */
 	@BlockId(description = "The id of the block with 4 rotations")
 	public static int block4RotationsId = 1920;
 
@@ -31,10 +42,18 @@ public class Config {
 	@BlockId(description = "The id of the block with a custom renderer")
 	public static int blockWithCustomBlockRendererId = 1924;
 
+	@BlockId(description = "The id of the block with networking")
+	public static int blockWithNetworkingId = 1925;
+
 	public static void readConfig(Configuration configFile) {
 		ConfigProcessing.processAnnotations(configFile, Config.class);
 	}
 
+	/***
+	 * This is where we register all of the new blocks, and add recipes to the recipes list.
+	 * canRegisterBlock checks to see if the ID is higher than 0 and checks that the block ID
+	 * isn't already taken by another block
+	 */
 	public static void register() {
 
 		@SuppressWarnings("unchecked")
@@ -60,6 +79,14 @@ public class Config {
 			Blocks.blockWithCustomBlockRenderer = new BlockWithCustomBlockRenderer();
 		}
 
+		if (ConfigProcessing.canRegisterBlock(blockWithNetworkingId)) {
+			Blocks.blockWithNetworking = new BlockWithNetworking();
+		}
+
+		/**
+		 * Finally we have to register the blocks and items with forge/fml
+		 * This will automatically register tile entities, too
+		 */
 		ConfigProcessing.registerItems(ExampleMod.Items.class, ModInfo.ID);
 		ConfigProcessing.registerBlocks(ExampleMod.Blocks.class, ModInfo.ID);
 
