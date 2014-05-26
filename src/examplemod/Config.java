@@ -1,5 +1,6 @@
 package examplemod;
 
+import java.io.File;
 import java.util.List;
 
 import net.minecraft.item.crafting.CraftingManager;
@@ -56,8 +57,8 @@ public class Config {
 	@BlockId(description = "The id of the block a TESR")
 	public static int blockWithTESRId = 1927;
 
-	public static void readConfig(Configuration configFile) {
-		ConfigProcessing.processAnnotations(configFile, Config.class);
+	public static void readConfig(File configFile, Configuration config) {
+		ConfigProcessing.processAnnotations(configFile, "ExampleMod", config, Config.class);
 	}
 
 	/***
