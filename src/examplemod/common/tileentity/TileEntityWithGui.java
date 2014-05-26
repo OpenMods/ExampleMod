@@ -6,6 +6,7 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.item.ItemStack;
 import openmods.GenericInventory;
+import openmods.IInventoryProvider;
 import openmods.api.IHasGui;
 import openmods.sync.ISyncableObject;
 import openmods.sync.SyncableInt;
@@ -13,13 +14,9 @@ import openmods.tileentity.SyncedTileEntity;
 import examplemod.client.gui.GuiExample;
 import examplemod.common.container.ContainerExample;
 
-public class TileEntityWithGui extends SyncedTileEntity implements IHasGui, IInventory {
+public class TileEntityWithGui extends SyncedTileEntity implements IHasGui, IInventoryProvider {
 
 	private SyncableInt sliderValue;
-
-	public TileEntityWithGui() {
-		setInventory(new GenericInventory("example", true, 2));
-	}
 
 	public SyncableInt getSliderValueObject() {
 		return sliderValue;
@@ -57,63 +54,11 @@ public class TileEntityWithGui extends SyncedTileEntity implements IHasGui, IInv
 	public void onSynced(Set<ISyncableObject> changes) {}
 
 	/*******************************************************
-	 * Implemented from IInventory
+	 * Implemented from IInventoryProvider
 	 *******************************************************/
 
 	@Override
-	public int getSizeInventory() {
-		return inventory.getSizeInventory();
+	public IInventory getInventory() {
+		return new GenericInventory("example", true, 2);
 	}
-
-	@Override
-	public ItemStack getStackInSlot(int i) {
-		return inventory.getStackInSlot(i);
-	}
-
-	@Override
-	public ItemStack decrStackSize(int i, int j) {
-		return inventory.decrStackSize(i, j);
-	}
-
-	@Override
-	public ItemStack getStackInSlotOnClosing(int i) {
-		return inventory.getStackInSlotOnClosing(i);
-	}
-
-	@Override
-	public void setInventorySlotContents(int i, ItemStack itemstack) {
-		inventory.setInventorySlotContents(i, itemstack);
-	}
-
-	@Override
-	public String getInvName() {
-		return inventory.getInvName();
-	}
-
-	@Override
-	public boolean isInvNameLocalized() {
-		return inventory.isInvNameLocalized();
-	}
-
-	@Override
-	public int getInventoryStackLimit() {
-		return inventory.getInventoryStackLimit();
-	}
-
-	@Override
-	public boolean isUseableByPlayer(EntityPlayer entityplayer) {
-		return inventory.isUseableByPlayer(entityplayer);
-	}
-
-	@Override
-	public void openChest() {}
-
-	@Override
-	public void closeChest() {}
-
-	@Override
-	public boolean isItemValidForSlot(int i, ItemStack itemstack) {
-		return inventory.isItemValidForSlot(i, itemstack);
-	}
-
 }
