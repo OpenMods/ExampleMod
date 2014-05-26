@@ -1,5 +1,7 @@
 package examplemod;
 
+import java.io.File;
+
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -101,10 +103,11 @@ public class ExampleMod {
 
 	@EventHandler
 	public void preInit(FMLPreInitializationEvent evt) {
-		Configuration configFile = new Configuration(evt.getSuggestedConfigurationFile());
-		Config.readConfig(configFile);
-		if (configFile.hasChanged()) {
-			configFile.save();
+		File configFile = evt.getSuggestedConfigurationFile();
+		Configuration config = new Configuration(configFile);
+		Config.readConfig(configFile, config);
+		if (config.hasChanged()) {
+			config.save();
 		}
 		Config.register();
 
